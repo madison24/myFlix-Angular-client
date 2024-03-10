@@ -1,15 +1,31 @@
-<div>
-  <app-navbar></app-navbar>
-
-  <mat-card *ngFor="let movie of movies">
-    <mat-card-header>
+<app-navbar></app-navbar>
+<div class="movie-container">
+  <mat-card *ngFor="let movie of movies" class="movie-card">
+    <img src="{{ movie.ImagePath }}" alt="{{ movie.Title }}" />
+    <button
+      class="favorite"
+      mat-icon-button
+      aria-label="Example icon-button with heart icon"
+      [ngClass]="isFave(movie._id) ? 'mat-flat-button' : 'mat-icon-button'"
+      (click)="
+        isFave(movie._id)
+          ? deleteFaveMovies(movie._id)
+          : addFaveMovies(movie._id)
+      "
+      [color]="isFave(movie._id) ? 'accent' : 'warn'"
+    >
+      <mat-icon>{{
+        isFave(movie._id) ? "favorite" : "favorite_border"
+      }}</mat-icon>
+    </button>
+    <mat-card-header class="movie-header">
       <mat-card-title>{{ movie.Title }}</mat-card-title>
       <mat-card-subtitle
         >Directed by: {{ movie.Director.Name }}</mat-card-subtitle
       >
     </mat-card-header>
-    <img src="{{ movie.ImagePath }}" alt="{{ movie.Title }}" />
-    <mat-card-actions>
+
+    <mat-card-actions class="card-actions">
       <button
         mat-button
         color="primary"
@@ -38,25 +54,6 @@
       >
         Description
       </button>
-      <mat-toolbar-row>
-        <span>{{ movie.Title }}</span>
-        <span class="spacer"></span>
-        <button
-          mat-icon-button
-          aria-label="Example icon-button with heart icon"
-          [ngClass]="isFave(movie._id) ? 'mat-flat-button' : 'mat-icon-button'"
-          (click)="
-            isFave(movie._id)
-              ? deleteFaveMovies(movie._id)
-              : addFaveMovies(movie._id)
-          "
-          [color]="isFave(movie._id) ? 'accent' : 'warn'"
-        >
-          <mat-icon>{{
-            isFave(movie._id) ? "favorite" : "favorite_border"
-          }}</mat-icon>
-        </button>
-      </mat-toolbar-row>
     </mat-card-actions>
   </mat-card>
 </div>

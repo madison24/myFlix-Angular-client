@@ -88,7 +88,7 @@ export class FetchApiDataService {
     return this.http
       .get(apiUrl + 'users/' + user.Username, {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -100,7 +100,7 @@ export class FetchApiDataService {
     return this.http
       .get(apiUrl + 'users/' + Username, {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(
@@ -139,7 +139,7 @@ export class FetchApiDataService {
     return this.http
       .put(apiUrl + 'users/' + userDetails.Username, userDetails, {
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
@@ -153,7 +153,7 @@ export class FetchApiDataService {
       .delete(apiUrl + 'users/' + user.Username, {
         responseType: 'text',
         headers: new HttpHeaders({
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + '' + token,
         }),
       })
       .pipe(catchError(this.handleError));

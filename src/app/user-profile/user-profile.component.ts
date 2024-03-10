@@ -39,8 +39,8 @@ export class UserProfileComponent implements OnInit {
 
   // Gets users info
   getUserInfo(): void {
-    this.fetchApiData.getUser().subscribe((data: any) => {
-      this.user = data;
+    this.fetchApiData.getUser().subscribe((response: any) => {
+      this.user = response;
       this.userData.Username = this.user.Username;
       this.userData.Email = this.user.Email;
       this.userData.Birthday = formatDate(
@@ -50,8 +50,8 @@ export class UserProfileComponent implements OnInit {
         'UTC-5'
       );
 
-      this.fetchApiData.getAllMovies().subscribe((result: any) => {
-        this.FavoriteMovies = result.filter(
+      this.fetchApiData.getAllMovies().subscribe((response: any) => {
+        this.FavoriteMovies = response.filter(
           (movie: { _id: any }) =>
             this.user.FavoriteMovies.indexOf(movie._id) >= 0
         );
@@ -70,19 +70,16 @@ export class UserProfileComponent implements OnInit {
   // update users profile
   updateUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe(
-      (data: any) => {
-        console.log('successfully updated', data);
-        localStorage.setItem('user', JSON.stringify(data));
-        localStorage.setItem('Username', data.Username);
-        console.log(data);
-        this.snackBar.open('Profile has been successfully updated', 'OK', {
-          duration: 2000,
-        });
-        window.location.reload();
-      },
       (result) => {
-        console.error('Error updating user:', result);
-        this.snackBar.open(result, 'OK', {
+        console.log('successfully updated', result);
+        localStorage.setItem('user', JSON.stringify(result));
+        this.snackBar.open('Profile has been successfully updated', 'OK', {
+          duration: 3000,
+        });
+      },
+      (error) => {
+        console.error('Error updating user:', error);
+        this.snackBar.open(error, 'OK', {
           duration: 2000,
         });
       }

@@ -1,0 +1,55 @@
+.profile,
+.update-buttons,
+.no-moviecard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile-card {
+  padding: 30px;
+  width: 30%;
+  min-width: 380px;
+
+  margin-top: 30px;
+}
+
+.profile-header {
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-content {
+  align-self: center;
+  justify-content: center;
+}
+.favorites-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+  width: 80%;
+}
+.moviecard {
+  height: 300px;
+  width: 200px;
+  margin: 10px;
+}
+
+.moviecard img {
+  width: 100%;
+  height: 100%;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.card-button {
+  margin-right: 5px;
+  width: 90px;
+}

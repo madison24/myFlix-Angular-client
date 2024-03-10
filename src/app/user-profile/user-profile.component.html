@@ -1,79 +1,114 @@
-<div>
-  <app-navbar></app-navbar>
-  <div>
-    <div>
-      <div>
-        <h1>Profile</h1>
-        <h3>
+<app-navbar></app-navbar>
+<div class="profile">
+  <!-- Profile, user info -->
+  <mat-card class="profile-card">
+    <mat-card-header class="profile-header">
+      <mat-card-title> <h2>Profile</h2> </mat-card-title>
+    </mat-card-header>
+    <div class="profile-content">
+      <mat-card-content>
+        <p>
           Username: <b>{{ user.Username }}</b>
-        </h3>
-        <h3>
+        </p>
+        <p>
           Email: <b>{{ user.Email }}</b>
-        </h3>
-
-        <h2>Favorite Movies</h2>
-        <mat-list>
-          <mat-list-item *ngFor="let movie of FavoriteMovies">
-            <img matListItemAvatar src="{{ movie.ImagePath }}" />
-            <span matListItemTitle> {{ movie.Title }} </span>
-          </mat-list-item>
-        </mat-list>
-      </div>
-      <form>
-        <h2>Update Profile</h2>
-        <br />
-        <mat-form-field>
-          <mat-label> Username </mat-label>
-          <input
-            matInput
-            [(ngModel)]="userData.Username"
-            type="text"
-            name="Username"
-          />
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label> Password </mat-label>
-          <input
-            matInput
-            [(ngModel)]="userData.Password"
-            type="password"
-            name="Password"
-            required
-          />
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label> Email </mat-label>
-          <input
-            matInput
-            [(ngModel)]="userData.Email"
-            type="email"
-            name="Email"
-          />
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label> Birthday </mat-label>
-          <input
-            matInput
-            [(ngModel)]="userData.Birthday"
-            type="date"
-            name="Birthday"
-          />
-        </mat-form-field>
-
-        <br />
-        <mat-card-actions>
-          <button mat-raised-button (click)="updateUser()">
-            Update Profile
-          </button>
-          <span></span>
-          <button mat-fab color="warn" (click)="deleteUserProfile()">
-            Delete Profile
-          </button>
-        </mat-card-actions>
-      </form>
+        </p>
+      </mat-card-content>
     </div>
+  </mat-card>
+
+  <!-- Favorite movies -->
+  <div class="favorites-container">
+    <div class="profile-header">
+      <mat-card-header class="profile-header">
+        <mat-card-title><h2>Favorite Movies</h2></mat-card-title>
+      </mat-card-header>
+      <div *ngIf="FavoriteMovies.length === 0" class="no-moviecard">
+        <p>No favorite movies yet</p>
+      </div>
+
+      <div class="movie-container">
+        <mat-card *ngFor="let movie of FavoriteMovies" class="moviecard">
+          <img
+            mat-card-image
+            src="{{ movie.ImagePath }}"
+            alt="{{ movie.Title }}"
+          />
+        </mat-card>
+      </div>
+    </div>
+    <!-- Update/Delete profile -->
+    <mat-card class="update-card">
+      <mat-card-header class="profile-header">
+        <mat-card-title><h2>Update Profile</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form>
+          <mat-form-field>
+            <mat-label> Username </mat-label>
+            <input
+              matInput
+              [(ngModel)]="userData.Username"
+              type="text"
+              name="Username"
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label> Password </mat-label>
+            <input
+              matInput
+              [(ngModel)]="userData.Password"
+              type="password"
+              name="Password"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label> Email </mat-label>
+            <input
+              matInput
+              [(ngModel)]="userData.Email"
+              type="email"
+              name="Email"
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label> Birthday </mat-label>
+            <input
+              matInput
+              [(ngModel)]="userData.Birthday"
+              type="date"
+              name="Birthday"
+            />
+          </mat-form-field>
+
+          <br />
+          <div class="update-buttons">
+            <mat-card-actions>
+              <button
+                mat-raised-button
+                (click)="updateUser()"
+                class="card-button"
+                color="primary"
+              >
+                Update
+              </button>
+              <span></span>
+              <button
+                mat-raised-button
+                color="warn"
+                (click)="deleteUserProfile()"
+                class="card-button"
+              >
+                Delete
+              </button>
+            </mat-card-actions>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

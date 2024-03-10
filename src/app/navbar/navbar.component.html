@@ -1,10 +1,12 @@
 <mat-toolbar>
-  <a mat-button (click)="navMovies()" target="_blank">myFlix</a>
-  <span></span>
-  <button mat-icon-button (click)="navProfile()">
+  <a mat-button (click)="navMovies()" target="_blank" class="navbar-title"
+    >myFlix</a
+  >
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="navProfile()" class="navbar-button">
     <mat-icon>person</mat-icon>
   </button>
-  <button mat-icon-button (click)="navLogoutUser()">
+  <button mat-icon-button (click)="navLogoutUser()" class="navbar-button">
     <mat-icon>logout</mat-icon>
   </button>
 </mat-toolbar>
