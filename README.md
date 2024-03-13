@@ -1,27 +1,27 @@
 # MyFlixAngularClient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+## Objective
 
-## Development server
+myFlix-Angular-Client is the client-side for an application called myFLix, based on the exsisting server side code I created () and was built using Angular.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- The app displays a welcome view where users will be able to either log in or register an account.
+- Once authenticated, the user can view all movies.
+- Each movie has additional information including its director, genre, and a brief description.
+- Each movie has a favorite button for the user to add or remove a movie to/from their favorites list.
+- Each user has a profile page that shows the account details, favorite movies, and a form to update the user.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Visualization
 
-## Build
+## Technology used
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular
+  - This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+- Node.js and npm package
+- Angular Material
+- TypeDoc
 
-## Running unit tests
+Access myFlix-Angular-Client using ng: Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Link to live site
